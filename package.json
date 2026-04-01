@@ -1,0 +1,16 @@
+{
+  "name": "social-feed-backend",
+  "version": "1.0.0",
+  "description": "Production-grade backend for a social feed application",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
