@@ -4,13 +4,14 @@ import express from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import morgan from "morgan";
+import path from "path";
 import { env } from "./config/env.js";
 import routes from "./routes/index.js";
 
 const app = express();
 
 app.use(helmet());
-
+app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 app.use(
   cors({
     origin: env.corsOrigin,
