@@ -13,7 +13,7 @@ export function requireOwnership(fetchResource, options = {}) {
     const resourceId = req.params[paramName];
 
     const resource = await fetchResource(resourceId);
-    if (!resource) {
+    if (!resource || resource.deleted_at) {
       throw new ApiError(404, `${resourceName} not found`);
     }
 
