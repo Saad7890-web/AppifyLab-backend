@@ -9,9 +9,9 @@
     "start": "node src/server.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "migrate:create": "dotenv -e .env -- node-pg-migrate create --migrations-dir src/database/migrations",
-    "migrate:up": "dotenv -e .env -- node-pg-migrate up --migrations-dir src/database/migrations",
-    "migrate:down": "dotenv -e .env -- node-pg-migrate down --migrations-dir src/database/migrations"
+    "migrate:create": "node-pg-migrate create --migrations-dir src/database/migrations",
+    "migrate:up": "node-pg-migrate up --migrations-dir src/database/migrations",
+    "migrate:down": "node-pg-migrate down --migrations-dir src/database/migrations"
   },
   "keywords": [],
   "author": "",
@@ -20,13 +20,13 @@
     "dotenv-cli": "^11.0.0",
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
-    "node-pg-migrate": "^8.0.4",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.1"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
+    "node-pg-migrate": "^8.0.4",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
