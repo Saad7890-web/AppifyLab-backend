@@ -10,6 +10,8 @@ import routes from "./routes/index.js";
 
 const app = express();
 
+
+
 app.use(helmet());
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 app.use(
@@ -20,7 +22,7 @@ app.use(
 );
 
 app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true}));
 app.use(cookieParser());
 
 app.use(

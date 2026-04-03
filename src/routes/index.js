@@ -6,7 +6,6 @@ import healthRoutes from "../modules/health/health.route.js";
 import likeRoutes from "../modules/likes/like.routes.js";
 import postRoutes from "../modules/posts/post.routes.js";
 import userRoutes from "../modules/users/user.routes.js";
-
 const router = Router();
 
 router.use("/health", healthRoutes);

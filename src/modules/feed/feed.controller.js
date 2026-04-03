@@ -3,8 +3,7 @@ import { asyncHandler } from '../../utils/async-handler.js';
 import { fetchFeed } from './feed.service.js';
 
 export const getFeed = asyncHandler(async (req, res) => {
-  const limit = req.query.limit;
-  const cursor = req.query.cursor || null;
+  const { limit, cursor = null } = req.validatedQuery || {};
 
   const result = await fetchFeed({
     userId: req.user.id,
