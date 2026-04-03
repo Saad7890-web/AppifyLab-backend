@@ -2,7 +2,6 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 import rateLimit from "express-rate-limit";
-import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { env } from "./config/env.js";
@@ -12,8 +11,35 @@ const app = express();
 
 
 
-app.use(helmet());
+app.use(
+  "/uploads",
+  express.static("uploads", {
+    setHeaders: (res) => {
+      res.set("Cross-Origin-Resource-Policy", "cross-origin");
+    },
+  })
+);
+
+
+app.use(
+  cors({
+    origin: env.corsOrigin,
+    credentials: true
+  })
+);
+
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+
+app.use(
+  "/uploads",
+  express.static("uploads", {
+    setHeaders: (res) => {
+      res.set("Cross-Origin-Resource-Policy", "cross-origin");
+    },
+  })
+);
+
+
 app.use(
   cors({
     origin: env.corsOrigin,
