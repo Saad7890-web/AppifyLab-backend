@@ -1,14 +1,18 @@
 import pg from "pg";
-import { env } from "./env.js";
 
 const { Pool } = pg;
 
 export const pool = new Pool({
-  host: env.dbHost,
-  port: env.dbPort,
-  user: env.dbUser,
-  password: env.dbPassword,
-  database: env.dbName
+  // host: env.dbHost,
+  // port: env.dbPort,
+  // user: env.dbUser,
+  // password: env.dbPassword,
+  // database: env.dbName
+
+   connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 export async function testDbConnection() {
