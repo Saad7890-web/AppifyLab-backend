@@ -6,7 +6,7 @@ import { env } from "./config/env.js";
 function runMigrations() {
   console.log("⏳ Running migrations...");
   execSync("npm run migrate:up", { stdio: "inherit" });
-  console.log("✅ Migrations completed");
+  console.log("Migrations completed");
 }
 
 async function start() {
@@ -15,7 +15,7 @@ async function start() {
     runMigrations();
 
     const server = app.listen(env.port, () => {
-      console.log(`🚀 Server running on port ${env.port}`);
+      console.log(`Server running on port ${env.port}`);
     });
 
     process.on("SIGINT", () => {
@@ -29,7 +29,7 @@ async function start() {
     });
 
   } catch (error) {
-    console.error("❌ Startup failed:", error);
+    console.error("Startup failed:", error);
     process.exit(1);
   }
 }
